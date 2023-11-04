@@ -3,6 +3,7 @@ from cohere.responses.classify import Example
 
 co = cohere.Client('lqJD3VjaVUpo4tgxxzg2RFIuu6p3jXmmezQc0tXD')
 
+#hi 
 examples=[
   Example("How do I find my insurance policy?", "Finding policy details"),
   Example("How do I download a copy of my insurance policy?", "Finding policy details"),
