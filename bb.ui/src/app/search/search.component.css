@@ -13,3 +13,11 @@
 .contentholder {
   margin: 30px;
 }
+
+.gradient-rectangle {
+  width: 600px; /* Set the width as desired */
+  height: 200px; /* Set the height as desired */
+  background: linear-gradient(to right, red, blue);
+  /* Use placeholders for random colors */
+  padding: 30px;
+}

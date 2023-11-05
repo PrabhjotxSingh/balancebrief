@@ -45,6 +45,19 @@ export class SearchComponent {
     return this.searchSharingService.getSearchData();
   }
 
+  generateRandomGradient() {
+    const randomColor1 = this.getRandomColor();
+    const randomColor2 = this.getRandomColor();
+    return `linear-gradient(to right, ${randomColor1}, ${randomColor2})`;
+  }
+
+  getRandomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r},${g},${b})`;
+  }
+
   onSearch(event: KeyboardEvent) {
     if (this.inputValue != '') {
       if (event.key === 'Enter') {
