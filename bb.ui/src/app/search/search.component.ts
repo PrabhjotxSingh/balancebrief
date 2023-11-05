@@ -10,6 +10,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class SearchComponent {
   inputValue: string = '';
   queryToSearch: string = '';
+  data: any = {};
+  apiURL: string = 'http://127.0.0.1:8000/';
 
   constructor(
     private searchSharingService: SearchSharingService,
@@ -24,7 +26,7 @@ export class SearchComponent {
   ngOnInit(): void {
     const queryToSearch: string = this.searchSharingService.getSearchData();
     if (queryToSearch !== '') {
-      const apiUrl = 'http://127.0.0.1:8000/query';
+      const apiUrl = this.apiURL + 'query';
       const params = new HttpParams().set('queryToSearch', queryToSearch);
 
       this.http.get(apiUrl, { params }).subscribe((data: any) => {
@@ -33,6 +35,10 @@ export class SearchComponent {
         }
       });
     }
+
+    this.http.get(this.apiURL + 'grab').subscribe((response: any) => {
+      this.data = response;
+    });
   }
 
   get searchData(): string {
@@ -45,7 +51,7 @@ export class SearchComponent {
         this.queryToSearch = this.inputValue;
         //console.log(this.queryToSearch);
         //start req
-        const apiUrl = 'http://127.0.0.1:8000/query';
+        const apiUrl = this.apiURL + 'query';
         const params = new HttpParams().set(
           'queryToSearch',
           this.queryToSearch

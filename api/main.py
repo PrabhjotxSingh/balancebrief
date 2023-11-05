@@ -20,3 +20,10 @@ async def root():
 async def get_data(request: Request, queryToSearch: str):
     print(queryToSearch)
     return {"queryToSearch": queryToSearch}
+
+@app.get("/grab")
+def grab_variable():
+    title = "title of article"
+    summary = "summary of article"
+    author = "author of article"
+    return {"title": title, "summary": summary, "author": author}
