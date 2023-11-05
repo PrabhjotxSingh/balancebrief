@@ -1,6 +1,6 @@
 import os
 import cohere
-
+from summarizeAuth import summarize
 from qdrant_client import QdrantClient
 from qdrant_client.http.models import PointStruct
 
@@ -46,3 +46,5 @@ operation_info = client_Qdrant.upsert(
     wait=True,
     points= data,
 )
+
+
