@@ -1,4 +1,12 @@
 <div class="contentholder">
+  <div *ngIf="showImage">
+    <img
+      draggable="false"
+      height="50px"
+      src="../../assets/loading.gif"
+      alt="Loading"
+    />
+  </div>
   <a href="/" class="btn">←</a>
   <h1>BALANCE BRIEF - SEARCH</h1>
   <input

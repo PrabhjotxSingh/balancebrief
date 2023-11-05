@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SearchSharingService } from '../search-sharing.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
@@ -7,12 +7,13 @@ import { HttpClient, HttpParams } from '@angular/common/http';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
   inputValue: string = '';
   queryToSearch: string = '';
   data: any = {};
   apiURL: string = 'http://127.0.0.1:8000/';
   gradientStyle: string;
+  showImage = false;
 
   constructor(
     private searchSharingService: SearchSharingService,
@@ -36,6 +37,12 @@ export class SearchComponent {
           //do stuff id data
         }
       });
+
+      this.showImage = true;
+
+      setTimeout(() => {
+        this.showImage = false;
+      }, 10000); // 10 seconds in milliseconds
     }
 
     this.http.get(this.apiURL + 'grab').subscribe((response: any) => {
@@ -63,6 +70,10 @@ export class SearchComponent {
   onSearch(event: KeyboardEvent) {
     if (this.inputValue != '') {
       if (event.key === 'Enter') {
+        this.showImage = true;
+        setTimeout(() => {
+          this.showImage = false;
+        }, 10000); // 10 seconds in milliseconds
         this.queryToSearch = this.inputValue;
         //console.log(this.queryToSearch);
         //start req
