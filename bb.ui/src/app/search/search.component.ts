@@ -37,16 +37,12 @@ export class SearchComponent implements OnInit {
           //do stuff id data
         }
       });
-
-      this.showImage = true;
-
-      setTimeout(() => {
-        this.showImage = false;
-      }, 10000); // 10 seconds in milliseconds
     }
 
+    this.showImage = true;
     this.http.get(this.apiURL + 'grab').subscribe((response: any) => {
       this.data = response;
+      this.showImage = false;
     });
   }
 
@@ -71,9 +67,6 @@ export class SearchComponent implements OnInit {
     if (this.inputValue != '') {
       if (event.key === 'Enter') {
         this.showImage = true;
-        setTimeout(() => {
-          this.showImage = false;
-        }, 10000); // 10 seconds in milliseconds
         this.queryToSearch = this.inputValue;
         //console.log(this.queryToSearch);
         //start req
@@ -89,6 +82,7 @@ export class SearchComponent implements OnInit {
         //end req
         this.http.get(this.apiURL + 'grab').subscribe((response: any) => {
           this.data = response;
+          this.showImage = false;
         });
       }
     }
