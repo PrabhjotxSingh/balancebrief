@@ -1,0 +1,15 @@
+.searchbar {
+  padding: 10px 0px;
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid white;
+  width: 80%;
+  font-size: 1.1em;
+}
+
+.contentholder {
+  margin: 30px;
+}
