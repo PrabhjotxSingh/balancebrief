@@ -12,6 +12,18 @@
   <br />
   <br />
   <h2>{{ data.title }}</h2>
-  <p>{{ data.summary }}</p>
-  <p>{{ data.author }}</p>
+  <p>&nbsp; {{ data.summary }}</p>
+  <h2>Sources Used</h2>
+  <p>
+    Left Leaning Source: {{ data.leftTitle }} - {{ data.leftAuthor }} -
+    {{ data.leftSource }}
+  </p>
+  <p>
+    Right Leaning Source: {{ data.rightTitle }} - {{ data.rightAuthor }} -
+    {{ data.rightSource }}
+  </p>
+  <p>
+    Central Source: {{ data.centerTitle }} - {{ data.centerAuthor }} -
+    {{ data.centerSource }}
+  </p>
 </div>

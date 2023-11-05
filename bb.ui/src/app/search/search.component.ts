@@ -61,6 +61,9 @@ export class SearchComponent {
         });
 
         //end req
+        this.http.get(this.apiURL + 'grab').subscribe((response: any) => {
+          this.data = response;
+        });
       }
     }
   }

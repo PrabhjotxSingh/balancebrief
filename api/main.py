@@ -19,14 +19,21 @@ async def root():
 
 @app.get("/query")
 async def get_data(request: Request, queryToSearch: str):
-    print(queryToSearch)
+    global result
     result = runQuery(queryToSearch)
-    print(result)
     return {"queryToSearch": queryToSearch}
 
 @app.get("/grab")
 def grab_variable():
-    title = "title of article"
-    summary = "summary of article"
-    author = "author of article"
-    return {"title": title, "summary": summary, "author": author}
+    title = result["title"]
+    leftTitle = result["leftTitle"]
+    rightTitle = result["rightTitle"]
+    centerTitle = result["centerTitle"]
+    summary = result["summary"]
+    rightAuthor = result["rightAuthor"]
+    leftAuthor = result["leftAuthor"]
+    centerAuthor = result["centerAuthor"]
+    rightSource = result["rightSource"]
+    leftSource = result["leftSource"]
+    centerSource = result["centerSource"]
+    return {"title": title, "summary": summary, "leftTitle": leftTitle, "rightTitle": rightTitle, "centerTitle": centerTitle, "rightAuthor": rightAuthor, "leftAuthor": leftAuthor, "centerAuthor": centerAuthor, "rightSource": rightSource, "leftSource": leftSource, "centerSource": centerSource}
