@@ -1,4 +1,12 @@
 <div class="contentholder">
+  <div *ngIf="showImage">
+    <img
+      draggable="false"
+      height="50px"
+      src="../../assets/loading.gif"
+      alt="Loading"
+    />
+  </div>
   <a href="/" class="btn">←</a>
   <h1>BALANCE BRIEF - SEARCH</h1>
   <input
@@ -11,19 +19,24 @@
   <br />
   <br />
   <br />
-  <h2>{{ data.title }}</h2>
-  <p>&nbsp; {{ data.summary }}</p>
+  <div class="gradient-rectangle" [style.background]="gradientStyle">
+    <br /><br /><br />
+    <h2>{{ data.title }}</h2>
+  </div>
+  <p>{{ data.summary }}</p>
   <h2>Sources Used</h2>
   <p>
     Left Leaning Source: {{ data.leftTitle }} - {{ data.leftAuthor }} -
-    {{ data.leftSource }}
+    <a class="btn" href="{{ data.leftSource }}">{{ data.leftSource }}</a>
   </p>
   <p>
     Right Leaning Source: {{ data.rightTitle }} - {{ data.rightAuthor }} -
-    {{ data.rightSource }}
+    <a class="btn" href="{{ data.rightSource }}">{{ data.rightSource }}</a>
   </p>
   <p>
     Central Source: {{ data.centerTitle }} - {{ data.centerAuthor }} -
-    {{ data.centerSource }}
+    <a class="btn" href="{{ data.centerSource }}">{{ data.centerSource }}</a>
   </p>
+  <br />
+  <br />
 </div>
