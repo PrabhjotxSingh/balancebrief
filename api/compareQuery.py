@@ -104,8 +104,7 @@ def runQuery(queryIn):
     )
 
     #Concatenating the titles to generate a new title
-    titles = search_result_central[0].payload["Title"] + ". 2. " +  search_result_left[0].payload["Title"] + ". 3. " + search_result_right[0].payload["Title"]
-    newTitle = client_Cohere.generate(prompt = ("Generate a title for a summarization of the following 3 articles: 1. " + titles))
+    newTitle = client_Cohere.generate(prompt = ("Return a title for this article: " + response.summary))
 
     #Returning the final json Object with the full responsee
     return {"summary": response.summary, "title": newTitle[0].text, 
