@@ -12,7 +12,6 @@ client_Qdrant = QdrantClient(
     api_key="O6zlMt_wp8A3UoefaS-lEoCWZE1Zm6WplaOwKxjMhB3KSSMyTe405w",
 )
 
-
 client_Cohere = cohere.Client('lqJD3VjaVUpo4tgxxzg2RFIuu6p3jXmmezQc0tXD')
 
 os.chdir("api/sources/") 
@@ -48,4 +47,3 @@ operation_info = client_Qdrant.upsert(
     wait=True,
     points= data,
 )
-print(data)

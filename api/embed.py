@@ -23,12 +23,12 @@ query_emb.shape
 
 #Compute the dot product between query embedding and document embedding
 scores = np.dot(query_emb, doc_emb.T)[0]
-
+print(scores)
 #Find the highest scores
 max_idx = np.argsort(-scores)
-
-print(f"Query: {query}")
-for idx in max_idx:
-  print(f"Score: {scores[idx]:.2f}")
-  print(docs[idx])
-  print("--------")
+print(max_idx)
+# print(f"Query: {query}")
+# for idx in max_idx:
+#   print(f"Score: {scores[idx]:.2f}")
+#   print(docs[idx])
+#   print("--------")
