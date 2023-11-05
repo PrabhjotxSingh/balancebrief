@@ -12,6 +12,7 @@ export class SearchComponent {
   queryToSearch: string = '';
   data: any = {};
   apiURL: string = 'http://127.0.0.1:8000/';
+  gradientStyle: string;
 
   constructor(
     private searchSharingService: SearchSharingService,
@@ -21,6 +22,7 @@ export class SearchComponent {
     if (queryToSearch != '') {
       this.inputValue = queryToSearch;
     }
+    this.gradientStyle = this.generateRandomGradient();
   }
 
   ngOnInit(): void {
