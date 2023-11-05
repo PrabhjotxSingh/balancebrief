@@ -15,7 +15,7 @@ client_Qdrant = QdrantClient(
     api_key=QDRANT_KEY,
 )
 
-client_Cohere = cohere.Client(QDRANT_KEY)
+client_Cohere = cohere.Client(COHERE_KEY)
 
 os.chdir("api/sources/") 
   
