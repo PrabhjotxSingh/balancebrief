@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from compareQuery import runQuery
 
 app = FastAPI()
 
@@ -19,6 +20,8 @@ async def root():
 @app.get("/query")
 async def get_data(request: Request, queryToSearch: str):
     print(queryToSearch)
+    result = runQuery(queryToSearch)
+    print(result)
     return {"queryToSearch": queryToSearch}
 
 @app.get("/grab")
