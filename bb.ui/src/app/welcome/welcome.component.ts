@@ -16,9 +16,11 @@ export class WelcomeComponent {
   ) {}
 
   onEnterPressed(event: KeyboardEvent) {
-    if (event.key === 'Enter') {
-      this.searchSharingService.setSearchData(this.inputValue);
-      this.router.navigate(['search']);
+    if (this.inputValue != '') {
+      if (event.key === 'Enter') {
+        this.searchSharingService.setSearchData(this.inputValue);
+        this.router.navigate(['search']);
+      }
     }
   }
 }

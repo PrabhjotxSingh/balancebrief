@@ -2,6 +2,8 @@
   <a href="/" class="btn">←</a>
   <h2>BALANCE BRIEF - SEARCH</h2>
   <input
+    [(ngModel)]="inputValue"
+    (keydown)="onSearch($event)"
     class="searchbar"
     placeholder="Enter search term here..."
     value="{{ searchData }}"
