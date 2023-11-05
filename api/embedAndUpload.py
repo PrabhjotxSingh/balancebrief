@@ -1,10 +1,7 @@
 import os
 import cohere
-import numpy as np
 
 from qdrant_client import QdrantClient
-from cohere.responses.classify import Example
-from qdrant_client.http.models import Distance, VectorParams
 from qdrant_client.http.models import PointStruct
 
 client_Qdrant = QdrantClient(
@@ -42,6 +39,8 @@ doc_emb = client_Cohere.embed(text, input_type="search_document", model="embed-e
 
 #Consolidate all captured data into a list of PointStructs to send to qDrant collection
 data = [PointStruct(id=i + 1, vector=doc_emb[i], payload = {"Bias": meta_data[i][0], "Author": meta_data[i][1], "Title": meta_data[i][2], "URL": meta_data[i][3], "Text": meta_data[i][4]}) for i in range(0, len(meta_data))]
+
+#Insert the embedded data and meta data to qDrant
 operation_info = client_Qdrant.upsert(
     collection_name="Sources",
     wait=True,
