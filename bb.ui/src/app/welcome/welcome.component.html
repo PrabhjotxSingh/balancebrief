@@ -1,0 +1,65 @@
+<div class="overlay"></div>
+<div class="bg" style="background-image: url('../../assets/main.jpg')"></div>
+
+<div class="intro">
+  <div class="card">
+    <h2>See the political<br />landscape with<br /><b>BALANCE BRIEF</b></h2>
+    <input
+      [(ngModel)]="inputValue"
+      (keydown)="onEnterPressed($event)"
+      class="searchbar"
+      placeholder="Start typing to begin searching..."
+    />
+  </div>
+</div>
+
+<div class="rec">
+  <div class="recholder">
+    <h2>See what is trending on <b>BB</b></h2>
+    <br />
+
+    <!--Start tiles-->
+
+    <div
+      style="
+        background-image: url('https://media.cnn.com/api/v1/images/stellar/prod/230803094932-02-warren-buffett-0503-file.jpg?c=16x9&q=h_720,w_1280,c_fill/f_webp');
+      "
+      class="tile"
+    >
+      <div class="start">
+        <p>Berkshire Hathaway posts 40% surge</p>
+      </div>
+    </div>
+    <div
+      style="
+        background-image: url('https://media.cnn.com/api/v1/images/stellar/prod/230616140114-bank-of-america-branch-0313.jpg?c=16x9&q=h_720,w_1280,c_fill/f_webp');
+      "
+      class="tile"
+    >
+      <div class="start">
+        <p>Deposit delays at US banks</p>
+      </div>
+    </div>
+    <div
+      style="
+        background-image: url('https://media.cnn.com/api/v1/images/stellar/prod/dinkinesh-firstlook-llorri.jpg?c=16x9&q=h_720,w_1280,c_fill/f_webp');
+      "
+      class="tile"
+    >
+      <div class="start">
+        <p>NASA's Lucy mission</p>
+      </div>
+    </div>
+
+    <!--End tiles-->
+
+    <h2>Current Political Bias</h2>
+    <p>
+      BALANCE BRIEF uses the
+      <a href="https://www.allsides.com/media-bias/media-bias-chart"
+        >AllSides</a
+      >
+      media bias study for it's article processing .
+    </p>
+  </div>
+</div>
