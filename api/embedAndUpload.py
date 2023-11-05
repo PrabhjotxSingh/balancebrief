@@ -1,6 +1,6 @@
 import os
 import cohere
-
+from summarizeAuth import summarize
 from qdrant_client import QdrantClient
 from qdrant_client.http.models import PointStruct
 
@@ -8,7 +8,6 @@ client_Qdrant = QdrantClient(
     url="https://e89b7298-c96f-4dbf-84ef-f0db87ed8f95.us-east4-0.gcp.cloud.qdrant.io:6333", 
     api_key="O6zlMt_wp8A3UoefaS-lEoCWZE1Zm6WplaOwKxjMhB3KSSMyTe405w",
 )
-
 
 client_Cohere = cohere.Client('lqJD3VjaVUpo4tgxxzg2RFIuu6p3jXmmezQc0tXD')
 
@@ -47,4 +46,5 @@ operation_info = client_Qdrant.upsert(
     wait=True,
     points= data,
 )
-print(data)
+
+
